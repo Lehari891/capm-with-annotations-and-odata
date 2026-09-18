@@ -2,8 +2,22 @@
     controllerName="bookscapmfreestyle.controller.View1"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
-
     <Page id="page" title="{i18n>title}">
+
+<VBox id="_IDGenVBox" >
+    <HBox id="_IDGenHBox" >
+    <Button id="_IDGenButton" text="create" press="_CreateNewRecord"></Button>
+    <Button id="_IDGenButton1" text="Update" press="_UpdateExistingRecord"></Button>
+    <Button id="_IDGenButton2" text="Delete" press="_DeleteExistingRecord"></Button>
+    <Button id="_IDGenButton3" text="Batch Upate" press="_BatchUpdate"></Button>
+    </HBox>
+
+    <HBox id="_IDGenHBox1" ><Button id="_IDGenButton4" text="Create with fragment" press="_CreateFragment"></Button>
+    </HBox>
+    </VBox>
+    
+
+
         <content>
 
             <Table id="idBooksTable" items="{bk>/BooksSet}" mode="SingleSelectLeft" selectionChange="_showChapters">
@@ -11,6 +25,7 @@
                 <columns>
                     <Column id="_IDGenColumn1">
                         <Text id="_IDGenText" text="Title" />
+                        
                     </Column>
 
                     <Column id="_IDGenColumn2">
