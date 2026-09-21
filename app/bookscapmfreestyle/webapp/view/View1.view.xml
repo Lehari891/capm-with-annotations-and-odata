@@ -13,6 +13,8 @@
     </HBox>
 
     <HBox id="_IDGenHBox1" ><Button id="_IDGenButton4" text="Create with fragment" press="_CreateFragment"></Button>
+    <Input id="idBooksVH" showValueHelp="true" valueHelpRequest="_onBookVH" ></Input>
+    <Button id="_IDGenButton12" icon="sap-icon://refresh" press="_resetBooksTable"></Button>
     </HBox>
     </VBox>
     

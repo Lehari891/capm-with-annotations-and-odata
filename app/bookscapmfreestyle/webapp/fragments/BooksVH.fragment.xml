@@ -1,0 +1,45 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Dialog id="_IDGenDialog"
+        
+        title="Books library">
+
+        <Table id="_IDGenTable1"  items="{bk>/BooksSet}">
+
+                <columns>
+                    <Column id="_IDGenColumn9" >
+                        <Text id="_IDGenText17"  text="Title" />
+                        
+                    </Column>
+
+                    <Column id="_IDGenColumn10" >
+                        <Text id="_IDGenText18" text="Author" />
+                    </Column>
+
+                    
+
+                    
+                </columns>
+
+                <items>
+                    <ColumnListItem id="_IDGenColumnListItem2"  type="Active" press="onBookRowPress">
+                        <cells>
+                            <Text id="_IDGenText20"  text="{bk>title}" />
+                            <Text id="_IDGenText21"  text="{bk>author}" />
+                           
+                        </cells>
+                    </ColumnListItem>
+                </items>
+
+            </Table>
+        <endButton>
+            <Button id="_IDGenButton11" 
+                text="Cancel"
+                press=".onCancelBookVH" />
+        </endButton>
+
+    </Dialog>
+
+</core:FragmentDefinition>

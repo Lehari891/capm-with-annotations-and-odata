@@ -109,8 +109,15 @@
       },
       "routes": [
         {
+          "name": "Home",
+          "pattern": "",
+          "target": [
+            "Home"
+          ]
+        },
+        {
           "name": "RouteView1",
-          "pattern": ":?query:",
+          "pattern": "books",
           "target": [
             "TargetView1"
           ]
@@ -124,6 +131,10 @@
         }
       ],
       "targets": {
+        "Home": {
+          "id": "Home",
+          "name": "Home"
+        },
         "TargetView1": {
           "id": "View1",
           "name": "View1"

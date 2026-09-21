@@ -3,6 +3,13 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <Page id="page2" title="Chapters">
+	<Link id="_IDGenLink1" width="30px"/>
+	<Link id="_IDGenLink2" text="Home" press="_backHome"/>
+	<Link id="_IDGenLink3" width="30px"/>
+	<Link id="_IDGenLink4" text="Back" press="_backtoView1"/>
+	<Link id="_IDGenLink5" width="30px"/>
+	<Link id="_IDGenLink6" text="Cancel" press="_canceltohome"/>
+	
     <List id="_IDGenList1"
 		headerText="Chapters"
 		headerLevel="H2"

@@ -22,10 +22,17 @@ sap.ui.define([
             // //sorters
             // var oSorter=new sap.ui.model.Sorter("price",true)
             // oBinding.sort(oSorter);
+            this.getOwnerComponent().getRouter().attachRoutePatternMatched(this._onAnyRouteMatched,this);
+            
 
 
 
 
+        },
+        _onAnyRouteMatched(oEvent){
+            debugger
+            const name=oEvent.getParameter('name');
+            const oArgs=oEvent.getParameter('arguments');
         },
         _showChapters: async function (oEvent) {
             var oModel = this.getView().getModel("bk"); // OData V4 model (NOT JSON)    
@@ -197,7 +204,7 @@ sap.ui.define([
                 newBook: {
                     title: '',
                     author: '',
-                    price: 'null',
+                    price: '',
                     publishedDate: null
 
                 }
@@ -239,7 +246,7 @@ sap.ui.define([
 
                 sap.m.MessageToast.show('book created successfully');
                 this._oCreateDialog.close();
-                oCreateModel.setProperty("/newBook", { title: '', author: '', price: 'null', publishedDate: 'null' });
+                oCreateModel.setProperty("/newBook", { title: '', author: '', price: null, publishedDate: null });
                 this.byId('idBooksTable').getBinding('items').refresh();
 
             } catch (error) {
@@ -248,5 +255,29 @@ sap.ui.define([
             }
 
         },
+        async _onBookVH(){
+            if(!this._booksfrag){
+                this._booksfrag= await this.loadFragment({
+                    name :'bookscapmfreestyle.fragments.BooksVH'
+                });
+                this.getView().addDependent(this._booksfrag);
+            }
+            this._booksfrag.open();
+        },
+        onCancelBookVH(){
+            this._booksfrag.close();
+        },
+        onBookRowPress(oEvent){
+            debugger;
+            var oBookTitle=oEvent .getSource().getBindingContext('bk').getObject().title;
+            this.byId('idBooksVH').setValue(oBookTitle);
+             this._booksfrag.close();
+
+             this.byId('idBooksTable').getBinding('items').filter(new sap.ui.model.Filter('title','Contains',oBookTitle));
+        },
+        _resetBooksTable(){
+            this.byId('idBooksTable').getBinding('items').filter([]);
+
+        }
     });
 });

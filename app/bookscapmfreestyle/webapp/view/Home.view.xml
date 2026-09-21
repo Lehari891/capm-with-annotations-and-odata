@@ -1,0 +1,53 @@
+<mvc:View
+    controllerName="bookscapmfreestyle.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page id="_IDGenPage1" title="Welcome">
+
+        <!-- Header Links -->
+        <headerContent>
+            <Button id="_IDGenButton7"
+                text="Contact Us"
+                type="Transparent"
+                press="onContact" />
+
+            <Button id="_IDGenButton8"
+                text="Login"
+                type="Transparent"
+                press="onLogin" />
+
+            <Button id="_IDGenButton9"
+                text="Signup"
+                type="Transparent"
+                press="onSignup" />
+        </headerContent>
+
+        <!-- Main Content -->
+        <content>
+            <VBox id="_IDGenVBox1"
+                height="100%"
+                justifyContent="Center"
+                alignItems="Center"
+                class="sapUiLargeMargin">
+
+                <Title id="_IDGenTitle1"
+                    text="Welcome Guest 👋"
+                    level="H1" />
+
+                <Text id="_IDGenText16"
+                    text="Explore as a guest"
+                    class="sapUiSmallMarginBottom" />
+
+                <Button id="_IDGenButton10"
+                    text="📚 Books Library"
+                    type="Emphasized"
+                    press="onBooksLibrary"
+                    width="15rem" />
+
+            </VBox>
+        </content>
+
+    </Page>
+
+</mvc:View>
