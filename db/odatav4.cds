@@ -20,6 +20,11 @@ type booksagegroup:String enum{
     Adult='Adult';
 }
 
+type statusTxt: String enum{
+    C='Completed';
+    I='InProcess';
+}
+
 entity Books{
     key ID:UUID;
     title:String;
@@ -28,6 +33,7 @@ entity Books{
     publishedDate:DateTime;
     gender:allgender;
     ageGroup:booksagegroup;
+    status : statusTxt;
 
     chapters:Composition of many Chapters on chapters.books=$self;
 }

@@ -1,10 +1,12 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/m/MessageBox"
-], (Controller, MessageBox) => {
+    "sap/m/MessageBox",
+    "../model/formatter"
+], (Controller, MessageBox,formatter) => {
     "use strict";
 
     return Controller.extend("bookscapmfreestyle.controller.View1", {
+        formatter: formatter,
         onInit() {
             var oDatamodel = this.getOwnerComponent().getModel();///fir odata v4
             this.getView().setModel(oDatamodel, 'bk')

@@ -1,6 +1,7 @@
 <mvc:View
     controllerName="bookscapmfreestyle.controller.View1"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
 
@@ -37,6 +38,9 @@
                     <Column id="_IDGenColumn3">
                         <Text id="_IDGenText2" text="Price" />
                     </Column>
+                    <Column id="_IDGenColumn11" >
+                        <Text id="_IDGenText19"  text=" Discounted Price" />
+                    </Column>
 
                     <Column id="_IDGenColumn4">
                         <Text id="_IDGenText3" text="Published Date" />
@@ -48,7 +52,11 @@
 
                     <Column id="_IDGenColumn6">
                         <Text id="_IDGenText5" text="Age Group" />
+                    </Column>   
+                    <Column id="_IDGenColumn12" >
+                        <Text id="_IDGenText23"  text="Status" />
                     </Column>
+
                 </columns>
 
                 <items>
@@ -57,9 +65,14 @@
                             <Text id="_IDGenText6" text="{bk>title}" />
                             <Text id="_IDGenText7" text="{bk>author}" />
                             <Text id="_IDGenText8" text="{bk>price}" />
+                            <!-- &gt; &lt;   expression binidng example and adding colors to the discounted and undiscounted price -->
+                            <ObjectStatus id="_IDGenText22" text="{=${bk>price} &gt; 400 ?${bk>price}-100:${bk>price}}" state="{=${bk>price} &gt; 400? 'Success' : 'Error'}" />
                             <Text id="_IDGenText9" text="{bk>publishedDate}" />
                             <Text id="_IDGenText10" text="{bk>gender}" />
                             <Text id="_IDGenText11" text="{bk>ageGroup}" />
+                            <!-- <core:Icon id="_IDGenIcon" src ="{=${bk>status}=== 'C' ? 'sap-icon://accept' : (${bk>status}=== 'I' ? 'sap-icon://pending':'sap-icon://alert')}" /> -->
+                            <core:Icon id="_IDGenIcon" src="{path:'bk>status',formatter:'.formatter.formatStatusIcon'}"
+                            color="{path:'bk>staus',formatter:'.formatter.formatStausColor'}"></core:Icon>
                         </cells>
                     </ColumnListItem>
                 </items>
